@@ -4,7 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="co.edu.udistrtital.sebastianvergara.fastfood.MainActivity">
+    tools:context="co.edu.udistrtital.sebastianvergara.fastfood.MainActivity"
+    android:background="@drawable/fondo">
 
     <LinearLayout
         android:layout_width="395dp"
@@ -20,7 +21,8 @@
             android:layout_height="wrap_content"
             android:hint="Email (Correo)"
             android:maxLines="1"
-            android:id="@+id/email"/>
+            android:id="@+id/email"
+            android:textColor="#FFFFFF"/>
         <EditText
             android:inputType="text"
             android:layout_marginTop="20dp"
@@ -28,7 +30,8 @@
             android:layout_height="wrap_content"
             android:hint="Password (Contraseña)"
             android:maxLines="1"
-            android:id="@+id/pass"/>
+            android:id="@+id/pass"
+            android:textColor="#FFFFFF"/>
         <Button
             android:layout_margin="20dp"
             android:layout_marginBottom="20dp"
