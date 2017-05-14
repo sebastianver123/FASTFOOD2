@@ -6,7 +6,6 @@
     android:background="@drawable/fondo"
     tools:context="co.edu.udistrtital.sebastianvergara.fastfood.MainActivity">
 
-
     <RelativeLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
@@ -41,4 +40,5 @@
             android:hint="@string/btnsingin"/>
 
     </RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>
