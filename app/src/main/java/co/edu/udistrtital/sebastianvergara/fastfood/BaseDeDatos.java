@@ -10,7 +10,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 
 public class BaseDeDatos extends SQLiteOpenHelper {
 
-    public BaseDeDatos(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
+    public Conexion_A_BD(Context context, String name, SQLiteDatabase.CursorFactory factory, int version) {
         super(context, name, factory, version);
     }
 
