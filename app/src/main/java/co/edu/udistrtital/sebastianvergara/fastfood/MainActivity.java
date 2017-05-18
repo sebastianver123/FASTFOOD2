@@ -26,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
         edContraseña = (EditText)findViewById(R.id.pass);
 
 
-        final BaseDeDatos ayudaDatos = new BaseDeDatos(getApplicationContext());
+         final BaseDeDatos ayudaDatos = new BaseDeDatos(getApplicationContext());
 
          btnsingin.setOnClickListener(new View.OnClickListener() {
              @Override

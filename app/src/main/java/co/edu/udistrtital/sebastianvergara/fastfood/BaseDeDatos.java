@@ -6,12 +6,12 @@ import android.database.sqlite.SQLiteOpenHelper;
 import android.provider.BaseColumns;
 
 
-class BaseDeDatos extends SQLiteOpenHelper {
+public class BaseDeDatos extends SQLiteOpenHelper {
 
-    private static final int VERSION_BASEDATOS = 1;
-    private static final String NOMBRE_BASEDATOS = "Datos.db";
+    public static final int VERSION_BASEDATOS = 1;
+    public static final String NOMBRE_BASEDATOS = "Datos.db";
 
-    private BaseDeDatos(Context context) {
+    BaseDeDatos(Context context) {
         super(context, NOMBRE_BASEDATOS, null, VERSION_BASEDATOS);
     }
 
@@ -30,11 +30,11 @@ class BaseDeDatos extends SQLiteOpenHelper {
 
     }
 
-    private static class DatosDeTabla implements BaseColumns {
-        private static final String NOMBRE_TABLA = "datosIngreso";
-        private static final String COLUMNA_ID = "id";
-        private static final String COLUMNA_CORREO = "correo";
-        private static final String COLUMNA_CONTRASEÑA = "contraseña";
+    public static class DatosDeTabla implements BaseColumns {
+        public static final String NOMBRE_TABLA = "datosIngreso";
+        public static final String COLUMNA_ID = "id";
+        public static final String COLUMNA_CORREO = "correo";
+        public static final String COLUMNA_CONTRASEÑA = "contraseña";
 
         private static final String TEXT_TYPE = " TEXT";
         private static final String COMMA_SEP = ",";
