@@ -3,5 +3,6 @@
     <string name="pass">Password</string>
     <string name="mail">Email</string>
     <string name="btnsingin">SING IN</string>
+    <string name="btnsingup">SING UP</string>
     <string name="title_activity_maps">Map</string>
 </resources>

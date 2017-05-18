@@ -51,18 +51,20 @@ public class MainActivity extends AppCompatActivity {
              public void onClick(View v) {
 
                  SQLiteDatabase db = ayudaDatos.getReadableDatabase();
-                 String[] projection = {BaseDeDatos.DatosDeTabla.COLUMNA_CORREO};
-                 String [] argsel = {edContraseña.getText().toString()};
-                 Cursor c = db.query(BaseDeDatos.NOMBRE_BASEDATOS, projection, BaseDeDatos.DatosDeTabla.COLUMNA_CORREO+"=?",argsel, null,null,null);
+                 String[] projection = {BaseDeDatos.DatosDeTabla.COLUMNA_ID};
+                 String [] argsel = {edCorreo.getText().toString()};
+                 Cursor c = db.query(BaseDeDatos.NOMBRE_BASEDATOS, projection, BaseDeDatos.DatosDeTabla.COLUMNA_ID,argsel, null,null,null);
 
-                 /*c.moveToFirst();
-                 edCorreo.setText(c.getString(0));
-                 edContraseña.setText(c.getString(1));*/
+                 c.moveToFirst();
 
-                 if(projection.equals(argsel)){
-                     Toast.makeText(getApplicationContext(),"Bienvenido", Toast.LENGTH_LONG).show();
-                 }else {
-                     Toast.makeText(getApplicationContext(),"Por Favor cree un usuario", Toast.LENGTH_LONG).show();
+                 try {
+                     if (projection.equals(argsel)) {
+                         Toast.makeText(getApplicationContext(), "Bienvenido", Toast.LENGTH_LONG).show();
+                     } else {
+                         Toast.makeText(getApplicationContext(), "Por Favor cree un usuario", Toast.LENGTH_LONG).show();
+                     }
+                 }catch (Exception e ){
+                     Toast.makeText(getApplicationContext(), "Intente de nuevo", Toast.LENGTH_LONG).show();
                  }
              }
          });

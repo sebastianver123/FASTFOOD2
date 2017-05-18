@@ -44,7 +44,7 @@
             android:layout_height="wrap_content"
             android:layout_below="@+id/btnin"
             android:layout_margin="20dp"
-            android:hint="SING UP"/>
+            android:hint="@string/btnsingup"/>
 
     </RelativeLayout>
 
