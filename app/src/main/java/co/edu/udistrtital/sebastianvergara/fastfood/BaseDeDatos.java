@@ -32,7 +32,6 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
     public static class DatosDeTabla implements BaseColumns {
         public static final String NOMBRE_TABLA = "datosIngreso";
-        public static final String COLUMNA_ID = "id";
         public static final String COLUMNA_CORREO = "correo";
         public static final String COLUMNA_CONTRASEÑA = "contraseña";
 
@@ -40,7 +39,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         private static final String COMMA_SEP = ",";
         private static final String CREAR_TABLA =
                 "CREATE TABLE " + DatosDeTabla.NOMBRE_TABLA + " (" +
-                        DatosDeTabla.COLUMNA_ID + " INTEGER PRIMARY KEY," +
+                         " INTEGER PRIMARY KEY," +
                         DatosDeTabla.COLUMNA_CORREO + TEXT_TYPE + COMMA_SEP +
                         DatosDeTabla.COLUMNA_CONTRASEÑA + TEXT_TYPE + " )";
 

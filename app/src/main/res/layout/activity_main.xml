@@ -38,6 +38,13 @@
             android:layout_below="@+id/pass"
             android:layout_margin="20dp"
             android:hint="@string/btnsingin"/>
+        <Button
+            android:id="@+id/btnup"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/btnin"
+            android:layout_margin="20dp"
+            android:hint="SING UP"/>
 
     </RelativeLayout>
 
