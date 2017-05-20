@@ -21,8 +21,25 @@
                 android:id="@+id/MapView"
                 android:name="com.google.android.gms.maps.SupportMapFragment"
                 android:layout_width="360dp"
-                android:layout_height="450dp"
+                android:layout_height="600dp"
                 android:layout_centerHorizontal="true"/>
+            <EditText
+                android:id="@+id/edBuscar"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/MapView"
+                android:hint="@string/buscar"
+                android:maxLines="1"
+                android:textColorHint="#FFFFFF"/>
+            <Button
+                android:id="@+id/btnBuscar"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/edBuscar"
+                android:layout_centerHorizontal="true"
+                android:text="@string/buscar"/>
+
+
 
 
         </RelativeLayout>
