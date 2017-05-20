@@ -1,6 +1,7 @@
 package co.edu.udistrtital.sebastianvergara.fastfood;
 
 import android.content.ContentValues;
+import android.content.Intent;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -48,6 +49,9 @@ public class MainActivity extends AppCompatActivity {
          btnsingin.setOnClickListener(new View.OnClickListener() {
              @Override
              public void onClick(View v) {
+
+                 Intent intent = new Intent(MainActivity.this,PantallaPrincipal.class);
+                 startActivity(intent);
 
 
              }
