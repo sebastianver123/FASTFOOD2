@@ -1,7 +1,6 @@
 package co.edu.udistrtital.sebastianvergara.fastfood;
 
 import android.content.ContentValues;
-import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -50,22 +49,7 @@ public class MainActivity extends AppCompatActivity {
              @Override
              public void onClick(View v) {
 
-                 SQLiteDatabase db = ayudaDatos.getReadableDatabase();
-                 String[] projection = {BaseDeDatos.DatosDeTabla.COLUMNA_ID};
-                 String [] argsel = {edCorreo.getText().toString()};
-                 Cursor c = db.query(BaseDeDatos.NOMBRE_BASEDATOS, projection, BaseDeDatos.DatosDeTabla.COLUMNA_ID,argsel, null,null,null);
 
-                 c.moveToFirst();
-
-                 try {
-                     if (projection.equals(argsel)) {
-                         Toast.makeText(getApplicationContext(), "Bienvenido", Toast.LENGTH_LONG).show();
-                     } else {
-                         Toast.makeText(getApplicationContext(), "Por Favor cree un usuario", Toast.LENGTH_LONG).show();
-                     }
-                 }catch (Exception e ){
-                     Toast.makeText(getApplicationContext(), "Intente de nuevo", Toast.LENGTH_LONG).show();
-                 }
              }
          });
 
