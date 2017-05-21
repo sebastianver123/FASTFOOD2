@@ -3,47 +3,50 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/fondo2"
     tools:context="co.edu.udistrtital.sebastianvergara.fastfood.PantallaPrincipal">
 
-    <ScrollView
-        android:layout_width="395dp"
-        android:layout_height="643dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="8dp">
-        <RelativeLayout
-            android:layout_width="395dp"
-            android:layout_height="643dp"
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="8dp">
-
-            <fragment
-                android:id="@+id/MapView"
-                android:name="com.google.android.gms.maps.SupportMapFragment"
-                android:layout_width="360dp"
-                android:layout_height="600dp"
-                android:layout_centerHorizontal="true"/>
-            <EditText
-                android:id="@+id/edBuscar"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/MapView"
-                android:hint="@string/buscar"
-                android:maxLines="1"
-                android:textColorHint="#FFFFFF"/>
-            <Button
-                android:id="@+id/btnBuscar"
+    <AbsoluteLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:background="@drawable/fondo2">
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RelativeLayout
                 android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@+id/edBuscar"
-                android:layout_centerHorizontal="true"
-                android:text="@string/buscar"/>
+                android:layout_height="wrap_content">
+
+                <fragment
+                    android:id="@+id/MapView"
+                    android:name="com.google.android.gms.maps.SupportMapFragment"
+                    android:layout_width="360dp"
+                    android:layout_height="360dp"
+                    android:layout_centerHorizontal="true"/>
+                <EditText
+                    android:id="@+id/edBuscar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/MapView"
+                    android:hint="@string/buscar"
+                    android:maxLines="1"
+                    android:layout_marginTop="10dp"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/buscar"
+                    android:layout_below="@+id/edBuscar"
+                    android:id="@+id/btnBuscar"/>
+                <Button
+                    android:id="@+id/btnClear"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btnBuscar"
+                    android:text="@string/clear"/>
 
 
+            </RelativeLayout>
 
-
-        </RelativeLayout>
-
-    </ScrollView>
+        </ScrollView>
+    </AbsoluteLayout>
 
 </android.support.constraint.ConstraintLayout>

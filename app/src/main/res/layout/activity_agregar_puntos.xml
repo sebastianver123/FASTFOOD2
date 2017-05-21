@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="co.edu.udistrtital.sebastianvergara.fastfood.AgregarPuntos">
+
+
+    <AbsoluteLayout
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent">
+
+        <ScrollView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content">
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/addtitle"
+                    android:text="Adicione un lugar al mapa"
+                    android:textSize="30dp"
+                    android:layout_centerHorizontal="true"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/nombreLugar"
+                    android:hint="@string/addLugar"
+                    android:layout_below="@+id/addtitle"
+                    android:maxLines="1"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/latLugar"
+                    android:hint="@string/lat"
+                    android:layout_below="@+id/nombreLugar"
+                    android:maxLines="1"/>
+                <EditText
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/lngLugar"
+                    android:hint="@string/lng"
+                    android:layout_below="@+id/latLugar"
+                    android:maxLines="1"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnGuardarAdd"
+                    android:text="@string/save"
+                    android:layout_below="@+id/lngLugar"
+                    android:layout_centerHorizontal="true"/>
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:id="@+id/btnVerificarExistencia"
+                    android:text="@string/verificarExistencia"
+                    android:layout_below="@+id/btnGuardarAdd"
+                    android:layout_centerHorizontal="true"/>
+
+            </RelativeLayout>
+        </ScrollView>
+    </AbsoluteLayout>
+
+
+
+
+</android.support.constraint.ConstraintLayout>

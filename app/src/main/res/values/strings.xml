@@ -7,5 +7,11 @@
     <string name="title_activity_maps">Mapa</string>
     <string name="subTitle">INICIO DE SESIÓN</string>
     <string name="buscar">BUSCAR</string>
+    <string name="clear">Limpiar Mapa</string>
+    <string name="addLugar">Nombre del Lugar</string>
+    <string name="lat">Latitud</string>
+    <string name="lng">Longitud</string>
+    <string name="save">Guardar</string>
+    <string name="verificarExistencia">Verificar si Existe</string>
 
 </resources>

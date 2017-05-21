@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
         edContraseña = (EditText)findViewById(R.id.pass);
 
 
-         final BaseDeDatos ayudaDatos = new BaseDeDatos(getApplicationContext());
+        final BaseDeDatos ayudaDatos = new BaseDeDatos(getApplicationContext());
 
         btnsingup.setOnClickListener(new View.OnClickListener() {
             @Override
