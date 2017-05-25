@@ -1,6 +1,7 @@
 package co.edu.udistrtital.sebastianvergara.fastfood;
 
 import android.content.ContentValues;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -47,6 +48,28 @@ public class AgregarPuntos extends AppCompatActivity {
                 }catch (Exception e){
                     Toast.makeText(getApplicationContext(), "Error Al Guardar El Dato", Toast.LENGTH_LONG).show();
 
+                }
+
+            }
+        });
+
+        verificarExistencia.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                try {
+                    SQLiteDatabase datos = miVerificacion.getReadableDatabase();
+                    String [] argselect = {nombreLugar.getText().toString()};
+                    String [] projection = {DatosLugaresComida.DatosTabla.COLUMNA_LAT, DatosLugaresComida.DatosTabla.COLUMNA_LNG};
+                    Cursor c = datos.query(DatosLugaresComida.DatosTabla.NOMBRE_TABLA , projection, DatosLugaresComida.DatosTabla.COLUMNA_LUGAR+"=?",argselect,null,null,null);
+
+                    c.moveToFirst();
+                    latLugar.setText(c.getString(0));
+                    lngLugar.setText(c.getString(1));
+
+                }catch (Exception e){
+
+                    Toast.makeText(getApplicationContext(), "No existe aún", Toast.LENGTH_LONG).show();
                 }
 
             }
