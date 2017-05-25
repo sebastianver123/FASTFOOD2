@@ -14,5 +14,5 @@
     <string name="save">Guardar</string>
     <string name="verificarExistencia">Verificar si Existe</string>
     <string name="TituloAddPuntos">Adicionar Un Lugar Al Mapa</string>
-
+    <string name="idLugar">ID</string>
 </resources>

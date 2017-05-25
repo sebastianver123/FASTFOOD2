@@ -15,6 +15,7 @@ public class AgregarPuntos extends AppCompatActivity {
     EditText nombreLugar;
     EditText latLugar;
     EditText lngLugar;
+    EditText idLugar;
     Button btnGuardar;
     Button verificarExistencia;
 
@@ -27,8 +28,10 @@ public class AgregarPuntos extends AppCompatActivity {
         nombreLugar = (EditText) findViewById(R.id.nombreLugar);
         latLugar = (EditText) findViewById(R.id.latLugar);
         lngLugar = (EditText) findViewById(R.id.lngLugar);
+        idLugar = (EditText) findViewById(R.id.idLugar);
         btnGuardar = (Button) findViewById(R.id.btnGuardarAdd);
         verificarExistencia = (Button) findViewById(R.id.btnVerificarExistencia);
+
 
         final DatosLugaresComida miVerificacion = new DatosLugaresComida(getApplicationContext());
 
@@ -39,11 +42,12 @@ public class AgregarPuntos extends AppCompatActivity {
                 try{
                     SQLiteDatabase datos = miVerificacion.getReadableDatabase();
                     ContentValues dLugares = new ContentValues();
+                    dLugares.put(DatosLugaresComida.DatosTabla.COLUMNA_ID,idLugar.getText().toString());
                     dLugares.put(DatosLugaresComida.DatosTabla.COLUMNA_LUGAR,nombreLugar.getText().toString());
                     dLugares.put(DatosLugaresComida.DatosTabla.COLUMNA_LAT,latLugar.getText().toString());
                     dLugares.put(DatosLugaresComida.DatosTabla.COLUMNA_LNG,lngLugar.getText().toString());
 
-                    Long datoLugar = datos.insert(DatosLugaresComida.DatosTabla.NOMBRE_TABLA, DatosLugaresComida.DatosTabla.COLUMNA_LUGAR, dLugares);
+                    Long datoLugar = datos.insert(DatosLugaresComida.DatosTabla.NOMBRE_TABLA, DatosLugaresComida.DatosTabla.COLUMNA_ID, dLugares);
                     Toast.makeText(getApplicationContext(), "Dato Guardado Exitosamente", Toast.LENGTH_LONG).show();
                 }catch (Exception e){
                     Toast.makeText(getApplicationContext(), "Error Al Guardar El Dato", Toast.LENGTH_LONG).show();
@@ -58,14 +62,17 @@ public class AgregarPuntos extends AppCompatActivity {
             public void onClick(View v) {
 
                 try {
-                    SQLiteDatabase datos = miVerificacion.getReadableDatabase();
+
+                    SQLiteDatabase db = miVerificacion.getReadableDatabase();
+
                     String [] argselect = {nombreLugar.getText().toString()};
-                    String [] projection = {DatosLugaresComida.DatosTabla.COLUMNA_LAT, DatosLugaresComida.DatosTabla.COLUMNA_LNG};
-                    Cursor c = datos.query(DatosLugaresComida.DatosTabla.NOMBRE_TABLA , projection, DatosLugaresComida.DatosTabla.COLUMNA_LUGAR+"=?",argselect,null,null,null);
+                    String [] projection = {DatosLugaresComida.DatosTabla.COLUMNA_LUGAR,DatosLugaresComida.DatosTabla.COLUMNA_LAT, DatosLugaresComida.DatosTabla.COLUMNA_LNG};
+                    Cursor c = db.query(DatosLugaresComida.DatosTabla.NOMBRE_TABLA , projection, DatosLugaresComida.DatosTabla.COLUMNA_ID+"=?",argselect,null,null,null);
 
                     c.moveToFirst();
-                    latLugar.setText(c.getString(0));
-                    lngLugar.setText(c.getString(1));
+                    nombreLugar.setText(c.getString(0));
+                    latLugar.setText(c.getString(1));
+                    lngLugar.setText(c.getString(2));
 
                 }catch (Exception e){
 

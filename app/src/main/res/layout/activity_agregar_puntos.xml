@@ -47,11 +47,19 @@
                     android:layout_below="@+id/latLugar"
                     android:hint="@string/lng"
                     android:maxLines="1"/>
+                <EditText
+                    android:id="@+id/idLugar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/lngLugar"
+                    android:hint="@string/idLugar"
+                    android:maxLines="1"/>
+
                 <Button
                     android:id="@+id/btnGuardarAdd"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_below="@+id/lngLugar"
+                    android:layout_below="@+id/idLugar"
                     android:layout_centerHorizontal="true"
                     android:text="@string/save"/>
                 <Button
