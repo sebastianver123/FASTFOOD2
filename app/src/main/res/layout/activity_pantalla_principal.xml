@@ -27,21 +27,30 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/MapView"
+                    android:layout_marginTop="10dp"
                     android:hint="@string/buscar"
-                    android:maxLines="1"
-                    android:layout_marginTop="10dp"/>
+                    android:maxLines="1"/>
                 <Button
+                    android:id="@+id/btnBuscar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="@string/buscar"
                     android:layout_below="@+id/edBuscar"
-                    android:id="@+id/btnBuscar"/>
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/buscar"/>
                 <Button
                     android:id="@+id/btnClear"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_below="@+id/btnBuscar"
+                    android:layout_centerHorizontal="true"
                     android:text="@string/clear"/>
+                <Button
+                    android:id="@+id/btnAgregarPunto"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btnClear"
+                    android:layout_centerHorizontal="true"
+                    android:text="@string/TituloAddPuntos"/>
 
 
             </RelativeLayout>

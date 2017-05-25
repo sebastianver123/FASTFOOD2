@@ -1,5 +1,6 @@
 package co.edu.udistrtital.sebastianvergara.fastfood;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -21,6 +22,7 @@ public class PantallaPrincipal extends AppCompatActivity implements OnMapReadyCa
     EditText edBuscar;
     Button btnLimpiar;
     Button btnBuscar;
+    Button btnAgregarPunto;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -33,6 +35,7 @@ public class PantallaPrincipal extends AppCompatActivity implements OnMapReadyCa
         edBuscar = (EditText)findViewById(R.id.edBuscar);
         btnLimpiar = (Button)findViewById(R.id.btnClear);
         btnBuscar = (Button)findViewById(R.id.btnBuscar);
+        btnAgregarPunto = (Button)findViewById(R.id.btnAgregarPunto);
 
         btnBuscar.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -52,6 +55,16 @@ public class PantallaPrincipal extends AppCompatActivity implements OnMapReadyCa
                 }catch (Exception e){
                     Toast.makeText(getApplicationContext(), "intente de nuevo",Toast.LENGTH_LONG).show();
                 }
+            }
+        });
+
+        btnAgregarPunto.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent intent = new Intent(PantallaPrincipal.this, AgregarPuntos.class);
+                startActivity(intent);
+
             }
         });
 
