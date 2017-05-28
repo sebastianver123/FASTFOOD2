@@ -51,6 +51,19 @@
                     android:layout_below="@+id/btnClear"
                     android:layout_centerHorizontal="true"
                     android:text="@string/TituloAddPuntos"/>
+                <TextView
+                    android:id="@+id/tvLat"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@+id/btnAgregarPunto"
+                    android:text="@string/lat"
+                    />
+                <TextView
+                    android:id="@+id/tvLng"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_below="@id/tvLat"
+                    android:text="@string/lng"/>
 
 
             </RelativeLayout>

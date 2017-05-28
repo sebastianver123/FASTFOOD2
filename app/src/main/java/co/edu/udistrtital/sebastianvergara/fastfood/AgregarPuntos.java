@@ -28,7 +28,7 @@ public class AgregarPuntos extends AppCompatActivity {
         nombreLugar = (EditText) findViewById(R.id.nombreLugar);
         latLugar = (EditText) findViewById(R.id.latLugar);
         lngLugar = (EditText) findViewById(R.id.lngLugar);
-        idLugar = (EditText) findViewById(R.id.idLugar);
+        idLugar = (EditText) findViewById(R.id.idLugarComida);
         btnGuardar = (Button) findViewById(R.id.btnGuardarAdd);
         verificarExistencia = (Button) findViewById(R.id.btnVerificarExistencia);
 
@@ -39,20 +39,16 @@ public class AgregarPuntos extends AppCompatActivity {
             @Override
             public void onClick(View v) {
 
-                try{
-                    SQLiteDatabase datos = miVerificacion.getReadableDatabase();
-                    ContentValues dLugares = new ContentValues();
-                    dLugares.put(DatosLugaresComida.DatosTabla.COLUMNA_ID,idLugar.getText().toString());
-                    dLugares.put(DatosLugaresComida.DatosTabla.COLUMNA_LUGAR,nombreLugar.getText().toString());
-                    dLugares.put(DatosLugaresComida.DatosTabla.COLUMNA_LAT,latLugar.getText().toString());
-                    dLugares.put(DatosLugaresComida.DatosTabla.COLUMNA_LNG,lngLugar.getText().toString());
+                    SQLiteDatabase db = miVerificacion.getWritableDatabase();
+                    ContentValues datos = new ContentValues();
+                    datos.put(DatosLugaresComida.DatosTabla.COLUMNA_ID,idLugar.getText().toString());
+                    datos.put(DatosLugaresComida.DatosTabla.COLUMNA_LUGAR,nombreLugar.getText().toString());
+                    datos.put(DatosLugaresComida.DatosTabla.COLUMNA_LAT,latLugar.getText().toString());
+                    datos.put(DatosLugaresComida.DatosTabla.COLUMNA_LNG,lngLugar.getText().toString());
 
-                    Long datoLugar = datos.insert(DatosLugaresComida.DatosTabla.NOMBRE_TABLA, DatosLugaresComida.DatosTabla.COLUMNA_ID, dLugares);
-                    Toast.makeText(getApplicationContext(), "Dato Guardado Exitosamente", Toast.LENGTH_LONG).show();
-                }catch (Exception e){
-                    Toast.makeText(getApplicationContext(), "Error Al Guardar El Dato", Toast.LENGTH_LONG).show();
+                    Long idGuardado = db.insert(DatosLugaresComida.DatosTabla.NOMBRE_TABLA, null, datos);
 
-                }
+                    Toast.makeText(getApplicationContext(), "Lugar Guardado "+idGuardado, Toast.LENGTH_LONG).show();
 
             }
         });
@@ -65,8 +61,9 @@ public class AgregarPuntos extends AppCompatActivity {
 
                     SQLiteDatabase db = miVerificacion.getReadableDatabase();
 
-                    String [] argselect = {nombreLugar.getText().toString()};
-                    String [] projection = {DatosLugaresComida.DatosTabla.COLUMNA_LUGAR,DatosLugaresComida.DatosTabla.COLUMNA_LAT, DatosLugaresComida.DatosTabla.COLUMNA_LNG};
+
+                    String [] projection = new String[]{DatosLugaresComida.DatosTabla.COLUMNA_LUGAR,DatosLugaresComida.DatosTabla.COLUMNA_LAT, DatosLugaresComida.DatosTabla.COLUMNA_LNG};
+                    String [] argselect = new String[]{idLugar.getText().toString()};
                     Cursor c = db.query(DatosLugaresComida.DatosTabla.NOMBRE_TABLA , projection, DatosLugaresComida.DatosTabla.COLUMNA_ID+"=?",argselect,null,null,null);
 
                     c.moveToFirst();
@@ -75,7 +72,6 @@ public class AgregarPuntos extends AppCompatActivity {
                     lngLugar.setText(c.getString(2));
 
                 }catch (Exception e){
-
                     Toast.makeText(getApplicationContext(), "No existe aún", Toast.LENGTH_LONG).show();
                 }
 
