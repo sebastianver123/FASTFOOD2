@@ -13,6 +13,6 @@
     <string name="lng">Longitud</string>
     <string name="save">Guardar</string>
     <string name="verificarExistencia">Verificar si Existe</string>
-    <string name="TituloAddPuntos">Adicionar Un Lugar Al Mapa</string>
+    <string name="TituloAddPuntos">Adicionar o Revisar Un Lugar Del Mapa</string>
     <string name="idLugar">ID</string>
 </resources>
