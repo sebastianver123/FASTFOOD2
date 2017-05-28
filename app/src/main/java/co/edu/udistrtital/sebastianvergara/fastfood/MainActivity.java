@@ -2,6 +2,7 @@ package co.edu.udistrtital.sebastianvergara.fastfood;
 
 import android.content.ContentValues;
 import android.content.Intent;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
@@ -16,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
     Button btnsingup;
     EditText edCorreo;
     EditText edContraseña;
+    EditText edCodigo;
 
 
     @Override
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
         btnsingup = (Button)findViewById(R.id.btnup);
         edCorreo = (EditText)findViewById(R.id.correo);
         edContraseña = (EditText)findViewById(R.id.pass);
+        edCodigo = (EditText)findViewById(R.id.codigo);
 
 
         final BaseDeDatos ayudaDatos = new BaseDeDatos(getApplicationContext());
@@ -37,11 +40,12 @@ public class MainActivity extends AppCompatActivity {
 
                 SQLiteDatabase db = ayudaDatos.getReadableDatabase();
                 ContentValues misDatos = new ContentValues();
+                misDatos.put(BaseDeDatos.DatosDeTabla.COLUMNA_CODIGO,edCodigo.getText().toString());
                 misDatos.put(BaseDeDatos.DatosDeTabla.COLUMNA_CORREO,edCorreo.getText().toString());
                 misDatos.put(BaseDeDatos.DatosDeTabla.COLUMNA_CONTRASEÑA,edContraseña.getText().toString());
 
                 Long DatoGuardado = db.insert(BaseDeDatos.DatosDeTabla.NOMBRE_TABLA, BaseDeDatos.DatosDeTabla.COLUMNA_CORREO, misDatos);
-                Toast.makeText(getApplicationContext(), "Ha creado su cuenta.", Toast.LENGTH_LONG).show();
+                Toast.makeText(getApplicationContext(), "Ha creado su cuenta. "+DatoGuardado, Toast.LENGTH_LONG).show();
 
             }
         });
@@ -50,8 +54,29 @@ public class MainActivity extends AppCompatActivity {
              @Override
              public void onClick(View v) {
 
-                 Intent intent = new Intent(MainActivity.this,PantallaPrincipal.class);
-                 startActivity(intent);
+                 try {
+
+                     SQLiteDatabase db = ayudaDatos.getReadableDatabase();
+
+
+                     String [] projection = new String[]{BaseDeDatos.DatosDeTabla.COLUMNA_CORREO};
+                     String [] argselect = new String[]{edCodigo.getText().toString()};
+                     Cursor c = db.query(BaseDeDatos.DatosDeTabla.NOMBRE_TABLA, projection, BaseDeDatos.DatosDeTabla.COLUMNA_CODIGO+"=?",argselect,null,null,null);
+
+                     c.moveToFirst();
+                     edCorreo.setText(c.getString(0));
+                     String correo = c.getString(0);
+
+                     if(correo.equals(edCorreo.getText().toString())){
+                         Intent intent = new Intent(MainActivity.this, PantallaPrincipal.class);
+                         startActivity(intent);
+                     }else {
+                         Toast.makeText(getApplicationContext(), "Cuenta incorrecta", Toast.LENGTH_LONG).show();
+                     }
+
+                 }catch (Exception e){
+                     Toast.makeText(getApplicationContext(), "Cree una cuenta", Toast.LENGTH_LONG).show();
+                 }
 
 
              }

@@ -8,7 +8,7 @@ import android.provider.BaseColumns;
 
 public class BaseDeDatos extends SQLiteOpenHelper {
 
-    public static final int VERSION_BASEDATOS = 1;
+    public static final int VERSION_BASEDATOS = 2;
     public static final String NOMBRE_BASEDATOS = "Datos.db";
 
     BaseDeDatos(Context context) {
@@ -32,7 +32,7 @@ public class BaseDeDatos extends SQLiteOpenHelper {
 
     public static class DatosDeTabla implements BaseColumns {
         public static final String NOMBRE_TABLA = "datosIngreso";
-        public static final String COLUMNA_ID = "id";
+        public static final String COLUMNA_CODIGO = "codigo";
         public static final String COLUMNA_CORREO = "correo";
         public static final String COLUMNA_CONTRASEÑA = "contraseña";
 
@@ -40,12 +40,13 @@ public class BaseDeDatos extends SQLiteOpenHelper {
         private static final String COMMA_SEP = ",";
         private static final String CREAR_TABLA =
                 "CREATE TABLE " + DatosDeTabla.NOMBRE_TABLA + " (" +
-                        DatosDeTabla.COLUMNA_ID + " INTEGER PRIMARY KEY," +
+                        DatosDeTabla.COLUMNA_CODIGO + " INTEGER PRIMARY KEY," +
                         DatosDeTabla.COLUMNA_CORREO + TEXT_TYPE + COMMA_SEP +
                         DatosDeTabla.COLUMNA_CONTRASEÑA + TEXT_TYPE + " )";
 
         private static final String SQL_DELETE_ENTRIES =
                 "DROP TABLE IF EXISTS " + DatosDeTabla.NOMBRE_TABLA;
-
     }
+
 }
+

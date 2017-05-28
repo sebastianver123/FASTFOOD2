@@ -28,15 +28,20 @@
                 android:layout_below="@+id/title"
                 android:layout_centerHorizontal="true"
                 android:text="@string/subTitle"
-
-                android:textSize="30dp"/>
+                android:textSize="30sp"/>
+            <EditText
+                android:id="@+id/codigo"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/title2"
+                android:hint="@string/codigo"/>
 
             <EditText
                 android:id="@+id/correo"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_below="@+id/title2"
-                android:layout_marginTop="15dp"
+                android:layout_below="@+id/codigo"
+
                 android:hint="@string/mail"
                 android:inputType="textEmailAddress"
                 android:maxLines="1" />
@@ -55,14 +60,14 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/pass"
                 android:layout_margin="20dp"
-                android:hint="@string/btnsingin"/>
+                android:text="@string/btnsingin"/>
             <Button
                 android:id="@+id/btnup"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@+id/btnin"
                 android:layout_margin="20dp"
-                android:hint="@string/btnsingup"/>
+                android:text="@string/btnsingup"/>
 
         </RelativeLayout>
     </AbsoluteLayout>

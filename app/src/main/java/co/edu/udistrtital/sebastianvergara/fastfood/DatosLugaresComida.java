@@ -37,8 +37,8 @@ public class DatosLugaresComida extends SQLiteOpenHelper {
         public static final String NOMBRE_TABLA = "datosLugares";
         public static final String COLUMNA_ID = "id";
         public static final String COLUMNA_LUGAR = "lugar";
-        public static final String COLUMNA_LAT = "lat";
-        public static final String COLUMNA_LNG = "lng";
+        public static final String COLUMNA_LAT = "latitud";
+        public static final String COLUMNA_LNG = "longitud";
 
         private static final String TEXT_TYPE = " TEXT";
         private static final String COMMA_SEP = ",";

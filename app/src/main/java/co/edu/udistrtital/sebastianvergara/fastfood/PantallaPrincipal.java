@@ -28,8 +28,11 @@ public class PantallaPrincipal extends AppCompatActivity implements OnMapReadyCa
     Button btnAgregarPunto;
     TextView tvLat;
     TextView tvLng;
-    int lat;
-    int lng;
+    String nombreDelLugar;
+    String sLat;
+    String sLng;
+    double lat;
+    double lng;
 
 
     @Override
@@ -37,15 +40,15 @@ public class PantallaPrincipal extends AppCompatActivity implements OnMapReadyCa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_pantalla_principal);
 
-        SupportMapFragment mapFragment = (SupportMapFragment)  getSupportFragmentManager().findFragmentById(R.id.MapView);
+        SupportMapFragment mapFragment = (SupportMapFragment) getSupportFragmentManager().findFragmentById(R.id.MapView);
         mapFragment.getMapAsync(this);
 
-        edBuscar = (EditText)findViewById(R.id.edBuscar);
-        btnLimpiar = (Button)findViewById(R.id.btnClear);
-        btnBuscar = (Button)findViewById(R.id.btnBuscar);
-        btnAgregarPunto = (Button)findViewById(R.id.btnAgregarPunto);
-        tvLat = (TextView)findViewById(R.id.tvLat);
-        tvLng = (TextView)findViewById(R.id.tvLng);
+        edBuscar = (EditText) findViewById(R.id.edBuscar);
+        btnLimpiar = (Button) findViewById(R.id.btnClear);
+        btnBuscar = (Button) findViewById(R.id.btnBuscar);
+        btnAgregarPunto = (Button) findViewById(R.id.btnAgregarPunto);
+        tvLat = (TextView) findViewById(R.id.tvLat);
+        tvLng = (TextView) findViewById(R.id.tvLng);
 
         final DatosLugaresComida miBusqueda = new DatosLugaresComida(getApplicationContext());
 
@@ -56,30 +59,35 @@ public class PantallaPrincipal extends AppCompatActivity implements OnMapReadyCa
                 try {
                     SQLiteDatabase db = miBusqueda.getReadableDatabase();
 
-                    String [] projection = new String[]{DatosLugaresComida.DatosTabla.COLUMNA_LAT, DatosLugaresComida.DatosTabla.COLUMNA_LNG};
-                    String [] argselect = new String[]{edBuscar.getText().toString()};
-                    Cursor c = db.query(DatosLugaresComida.DatosTabla.NOMBRE_TABLA , projection, DatosLugaresComida.DatosTabla.COLUMNA_LUGAR+"=?",argselect,null,null,null);
+
+                    String[] projection = new String[]{DatosLugaresComida.DatosTabla.COLUMNA_LUGAR, DatosLugaresComida.DatosTabla.COLUMNA_LAT, DatosLugaresComida.DatosTabla.COLUMNA_LNG};
+                    String[] argselect = new String[]{edBuscar.getText().toString()};
+                    Cursor c = db.query(DatosLugaresComida.DatosTabla.NOMBRE_TABLA, projection, DatosLugaresComida.DatosTabla.COLUMNA_ID + "=?", argselect, null, null, null);
 
                     c.moveToFirst();
-                    lat = c.getInt(0);
-                    lng = c.getInt(1);
+                    tvLat.setText(c.getString(1));
+                    tvLng.setText(c.getString(2));
+                    nombreDelLugar = c.getString(0);
+                    sLat = c.getString(1);
+                    sLng = c.getString(2);
+                    lat = Double.parseDouble(sLat) ;
+                    lng = Double.parseDouble(sLng);
 
-                }catch (Exception e){
-                    Toast.makeText(getApplicationContext(), "No se encuentra el lugar buscado",Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "No se encuentra el lugar buscado", Toast.LENGTH_LONG).show();
                 }
-
-
             }
         });
+
 
         btnLimpiar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
 
-                try{
+                try {
                     miMapa.clear();
-                }catch (Exception e){
-                    Toast.makeText(getApplicationContext(), "intente de nuevo",Toast.LENGTH_LONG).show();
+                } catch (Exception e) {
+                    Toast.makeText(getApplicationContext(), "Intente de nuevo", Toast.LENGTH_LONG).show();
                 }
             }
         });
@@ -102,11 +110,9 @@ public class PantallaPrincipal extends AppCompatActivity implements OnMapReadyCa
         miMapa = googleMap;
         miMapa.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
 
-
-
-        LatLng hamburguesa = new LatLng(4.628667, -74.065417);
-        Marker marker = miMapa.addMarker(new MarkerOptions().position(hamburguesa).title("El Corral"));
-        miMapa.moveCamera(CameraUpdateFactory.newLatLngZoom(hamburguesa,19));
+        LatLng posLugar = new LatLng(lat,lng);
+        Marker marker = miMapa.addMarker(new MarkerOptions().position(posLugar).title(nombreDelLugar).draggable(true));
+        miMapa.moveCamera(CameraUpdateFactory.newLatLngZoom(posLugar,1));
 
     }
 
