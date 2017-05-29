@@ -62,7 +62,7 @@ public class PantallaPrincipal extends AppCompatActivity implements OnMapReadyCa
 
                     String[] projection = new String[]{DatosLugaresComida.DatosTabla.COLUMNA_LUGAR, DatosLugaresComida.DatosTabla.COLUMNA_LAT, DatosLugaresComida.DatosTabla.COLUMNA_LNG};
                     String[] argselect = new String[]{edBuscar.getText().toString()};
-                    Cursor c = db.query(DatosLugaresComida.DatosTabla.NOMBRE_TABLA, projection, DatosLugaresComida.DatosTabla.COLUMNA_ID + "=?", argselect, null, null, null);
+                    Cursor c = db.query(DatosLugaresComida.DatosTabla.NOMBRE_TABLA, projection, DatosLugaresComida.DatosTabla.COLUMNA_ID+ "=?", argselect, null, null, null);
 
                     c.moveToFirst();
                     tvLat.setText(c.getString(1));
@@ -78,7 +78,7 @@ public class PantallaPrincipal extends AppCompatActivity implements OnMapReadyCa
 
                     LatLng posLugar = new LatLng(lat,lng);
                     Marker marker = miMapa.addMarker(new MarkerOptions().position(posLugar).title(nombreDelLugar).draggable(true));
-                    miMapa.moveCamera(CameraUpdateFactory.newLatLngZoom(posLugar,19));
+                    miMapa.moveCamera(CameraUpdateFactory.newLatLngZoom(posLugar,18));
 
                 } catch (Exception e) {
                     Toast.makeText(getApplicationContext(), "No se encuentra el lugar buscado", Toast.LENGTH_LONG).show();
