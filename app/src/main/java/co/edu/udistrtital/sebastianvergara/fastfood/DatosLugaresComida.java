@@ -11,7 +11,7 @@ import android.provider.BaseColumns;
 
 public class DatosLugaresComida extends SQLiteOpenHelper {
 
-    public static final int VERSION_BASEDATOS = 2;
+    public static final int VERSION_BASEDATOS = 3;
     public static final String NOMBRE_BASEDATOS = "DatosComida.db";
 
     DatosLugaresComida(Context context) {

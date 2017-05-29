@@ -73,6 +73,13 @@ public class PantallaPrincipal extends AppCompatActivity implements OnMapReadyCa
                     lat = Double.parseDouble(sLat) ;
                     lng = Double.parseDouble(sLng);
 
+
+                    miMapa.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
+
+                    LatLng posLugar = new LatLng(lat,lng);
+                    Marker marker = miMapa.addMarker(new MarkerOptions().position(posLugar).title(nombreDelLugar).draggable(true));
+                    miMapa.moveCamera(CameraUpdateFactory.newLatLngZoom(posLugar,19));
+
                 } catch (Exception e) {
                     Toast.makeText(getApplicationContext(), "No se encuentra el lugar buscado", Toast.LENGTH_LONG).show();
                 }
