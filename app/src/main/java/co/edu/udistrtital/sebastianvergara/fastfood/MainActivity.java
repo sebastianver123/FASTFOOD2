@@ -59,19 +59,24 @@ public class MainActivity extends AppCompatActivity {
                      SQLiteDatabase db = ayudaDatos.getReadableDatabase();
 
 
-                     String [] projection = new String[]{BaseDeDatos.DatosDeTabla.COLUMNA_CORREO};
+                     String [] projection = new String[]{BaseDeDatos.DatosDeTabla.COLUMNA_CORREO, BaseDeDatos.DatosDeTabla.COLUMNA_CONTRASEÑA};
                      String [] argselect = new String[]{edCodigo.getText().toString()};
                      Cursor c = db.query(BaseDeDatos.DatosDeTabla.NOMBRE_TABLA, projection, BaseDeDatos.DatosDeTabla.COLUMNA_CODIGO+"=?",argselect,null,null,null);
 
                      c.moveToFirst();
                      edCorreo.setText(c.getString(0));
                      String correo = c.getString(0);
+                     String contraseña = c.getString(1);
 
                      if(correo.equals(edCorreo.getText().toString())){
-                         Intent intent = new Intent(MainActivity.this, PantallaPrincipal.class);
-                         startActivity(intent);
+                         if(contraseña.equals(edContraseña.getText().toString())){
+                             Intent intent = new Intent(MainActivity.this, PantallaPrincipal.class);
+                             startActivity(intent);
+                         }else{
+                             Toast.makeText(getApplicationContext(), "Ingrese Contraseña", Toast.LENGTH_LONG).show();
+                         }
                      }else {
-                         Toast.makeText(getApplicationContext(), "Cuenta incorrecta", Toast.LENGTH_LONG).show();
+                         Toast.makeText(getApplicationContext(), "Cuenta o Contraseña incorrecta", Toast.LENGTH_LONG).show();
                      }
 
                  }catch (Exception e){
