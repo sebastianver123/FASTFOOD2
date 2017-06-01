@@ -68,13 +68,9 @@ public class MainActivity extends AppCompatActivity {
                      String correo = c.getString(0);
                      String contraseña = c.getString(1);
 
-                     if(correo.equals(edCorreo.getText().toString())){
-                         if(contraseña.equals(edContraseña.getText().toString())){
+                     if(correo.equals(edCorreo.getText().toString()) && contraseña.equals(edContraseña.getText().toString())){
                              Intent intent = new Intent(MainActivity.this, PantallaPrincipal.class);
                              startActivity(intent);
-                         }else{
-                             Toast.makeText(getApplicationContext(), "Ingrese Contraseña", Toast.LENGTH_LONG).show();
-                         }
                      }else {
                          Toast.makeText(getApplicationContext(), "Cuenta o Contraseña incorrecta", Toast.LENGTH_LONG).show();
                      }

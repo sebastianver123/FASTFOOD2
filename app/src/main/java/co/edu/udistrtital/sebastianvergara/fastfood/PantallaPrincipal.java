@@ -116,11 +116,6 @@ public class PantallaPrincipal extends AppCompatActivity implements OnMapReadyCa
     public void onMapReady(GoogleMap googleMap) {
         miMapa = googleMap;
         miMapa.setMapType(GoogleMap.MAP_TYPE_TERRAIN);
-
-        LatLng posLugar = new LatLng(lat,lng);
-        Marker marker = miMapa.addMarker(new MarkerOptions().position(posLugar).title(nombreDelLugar).draggable(true));
-        miMapa.moveCamera(CameraUpdateFactory.newLatLngZoom(posLugar,1));
-
     }
 
 

@@ -4,16 +4,16 @@
     <string name="mail">Email</string>
     <string name="btnsingin">SING IN</string>
     <string name="btnsingup">SING UP</string>
-    <string name="title_activity_maps">Mapa</string>
-    <string name="subTitle">INICIO DE SESIÓN</string>
-    <string name="buscar">BUSCAR SEGUN ID</string>
-    <string name="clear">Limpiar Mapa</string>
-    <string name="addLugar">Nombre del Lugar</string>
-    <string name="lat">Latitud</string>
-    <string name="lng">Longitud</string>
-    <string name="save">Guardar</string>
-    <string name="verificarExistencia">Verificar si Existe</string>
-    <string name="TituloAddPuntos">Adicionar o Revisar Un Lugar Del Mapa</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="subTitle">Login</string>
+    <string name="buscar">Search by ID</string>
+    <string name="clear">Clean map</string>
+    <string name="addLugar">Name of a place</string>
+    <string name="lat">Latitude</string>
+    <string name="lng">Length</string>
+    <string name="save">Save</string>
+    <string name="verificarExistencia">Check existence</string>
+    <string name="TituloAddPuntos">Add or review a place</string>
     <string name="idLugar">ID</string>
-    <string name="codigo">Codigo</string>
+    <string name="codigo">Code</string>
 </resources>
